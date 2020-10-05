@@ -1,9 +1,10 @@
 import styles from '../styles/Home.module.css'
+import Layout from '../components/Layout'
 import Nav from '../components/nav'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <Layout className={styles.container}>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -56,6 +57,6 @@ export default function Home() {
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
-    </div>
+    </Layout>
   )
 }
