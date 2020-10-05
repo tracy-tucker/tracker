@@ -4,7 +4,7 @@ const links = [
     {href: 'https://zeit.co/now', label: 'ZEIT'},
     {href: 'https://github.com/zeit/next.js', label: 'GITHUB'}
 ].map(link => {
-    link.key = 'nav-link-${link.hef}-${link.label}'
+    link.key = `nav-link-${link.hef}-${link.label}`
     return link
 })
 
@@ -12,9 +12,12 @@ const Nav = () => (
     <nav>
         <ul>
             <li>
-                <link href='/'>
+                <Link href='/'>
                     <a>Home</a>
-                </link>
+                </Link>
+                <Link href='/about'>
+                    <a>About</a>
+                </Link>
             </li>
             {links.map(({key, href, label}) => (
                 <li key={key}>
@@ -24,3 +27,5 @@ const Nav = () => (
         </ul>
     </nav>
 )
+
+export default Nav;
