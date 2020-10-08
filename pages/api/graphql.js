@@ -2,17 +2,21 @@
 
 import { redirect } from "next/dist/next-server/server/api-utils"
 
-//NEXTJS EASY WAY OF CODING THIS
+//req/res using ApolloServer
+import { ApolloServer, gql } from 'apollo-server-micro'
+
+
+//NEXTJS EASY WAY OF CODING REQ/RES FUNCTION
 //request comes in and returns a response
-export default (req, res) => { //both request and response are required
-    //sending back a response to the client
-    res.status(200).json({
-        test: "Hello Level Up"
-    });
-};
+// export default (req, res) => { //both request and response are required
+//     //sending back a response to the client
+//     res.status(200).json({
+//         test: "Hello Level Up"
+//     });
+// };
 
 
-//LONG EXPLANATION WAY OF CODING THIS
+//LONG EXPLANATION WAY OF CODING REQ/RES FUNCTION
 //request comes in and returns a response
 // export default (req, res) => { //both request and response are required
 //     //sending back a response to the client
