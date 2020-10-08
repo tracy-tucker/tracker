@@ -6,6 +6,36 @@ import { redirect } from "next/dist/next-server/server/api-utils"
 import { ApolloServer, gql } from 'apollo-server-micro'
 
 
+//This is defining the query APIs that we have available
+//Query = resolver function
+//sayHello = resolver name, String = what it returns
+const typeDefs = gql`
+    type Query {
+        sayHello: String
+    }
+`
+
+//Define the resolvers
+//Resolvers are what runs when we hit the API
+const resolvers = {
+    Query: {
+        sayHello: () => { //a normal resolver would return parent args
+            return "Hello Level Up!";
+        }
+    }
+}
+
+//Create the Apollo Server
+const apolloServer = new ApolloServer({ typeDefs, resolvers });
+
+export const config = {
+    api: {
+        bodyParser: false //turning off bodyParser for this route
+    }
+}
+
+export default apolloServer.createHandler({ path: '/api/graphql' });
+
 //NEXTJS EASY WAY OF CODING REQ/RES FUNCTION
 //request comes in and returns a response
 // export default (req, res) => { //both request and response are required
