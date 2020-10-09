@@ -1,6 +1,7 @@
 import styles from '../styles/Home.module.css'
 import Layout from '../components/Layout'
 import { withApollo } from '../lib/apollo';
+import { useQuery } from '@apollo/react-hooks';
 
 // export default function Home() {
   // return (
