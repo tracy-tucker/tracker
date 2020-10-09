@@ -1,8 +1,10 @@
 import styles from '../styles/Home.module.css'
 import Layout from '../components/Layout'
+import { withApollo } from '../lib/apollo';
 
-export default function Home() {
-  return (
+// export default function Home() {
+  // return (
+  const Home = () => (
     <Layout className={styles.container}>
 
       <main className={styles.main}>
@@ -58,4 +60,7 @@ export default function Home() {
       </footer>
     </Layout>
   )
-}
+//   )
+// }
+
+export default withApollo(Home);
