@@ -7,9 +7,17 @@ import gql from 'graphql-tag'; //in order to write graphql queries
 //Created a new GraphQL Query
 //used gql-tag "gql '' " to wrap the query
 //the query itself has a standard name of HelloQuery
+// const HELLO_QUERY = gql `
+//   query HelloQuery {
+//     sayHello
+//   }
+// `;
+
 const HELLO_QUERY = gql `
   query HelloQuery {
-    sayHello
+    company {
+      ceo
+    }
   }
 `;
 
@@ -25,7 +33,8 @@ const HELLO_QUERY = gql `
 
         <main className={styles.main}>
           <h1 className={styles.title}>
-            {data.sayHello}
+            {/* {data.sayHello} */}
+            {data.company.ceo}
           </h1>
 
           <p className={styles.description}>
