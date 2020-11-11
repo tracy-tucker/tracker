@@ -3,7 +3,7 @@ import Habit from './Habit';
 const HabitList = () => {
     return (
         <section>
-            <h2>MMy Habits</h2>
+            <h2>My Habits</h2>
             <Habit />
             <Habit />
             <Habit />
