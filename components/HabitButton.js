@@ -1,10 +1,10 @@
 import { useState } from 'react' //React hook
 
-const HabitButton = () => {
+const HabitButton = ({date}) => {
     const [complete, setComplete] = useState(false)
     return (
         <span>
-            10/15
+            {date.getMonth() + 1}/{date.getDate()}
             <button onClick={() => setComplete(!complete)}>
                 {complete ? 'X' : 'O'}
             </button>
