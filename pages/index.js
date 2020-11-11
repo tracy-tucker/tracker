@@ -5,6 +5,8 @@ import gql from 'graphql-tag'; //in order to write graphql queries
 import { withApollo } from '../lib/apollo'; //importing in the higher-order component
 import Layout from '../components/Layout'
 import HabitList from '../components/HabitList'
+import HabitForm from '../components/HabitForm'
+
 
 
 //Created a new GraphQL Query
@@ -39,6 +41,7 @@ const HELLO_QUERY = gql `
             Level Up Your Life
             {/* {data.company.ceo} */}
           </h1>
+          <HabitForm />
           <HabitList />
 
         </main>
