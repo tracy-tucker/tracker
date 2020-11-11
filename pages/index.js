@@ -44,7 +44,7 @@ const HELLO_QUERY = gql `
             {/* {data.company.ceo} */}
           </h1>
           <div className={styles.list}>
-            <HabitForm />
+            <HabitForm setHabits={setHabits} />
             <HabitList habits={habits} />
           </div>
 
