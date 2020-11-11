@@ -4,8 +4,8 @@ const HabitForm = ({ setHabits }) => {
     return (
         <Form
             onSubmit={data => {
-                setHabits(prevState => [...prevState, data.habit])
                 console.log(data)
+                setHabits(prevState => [...prevState, data.habit])
             }}
         >
             <Field>Habit</Field>
