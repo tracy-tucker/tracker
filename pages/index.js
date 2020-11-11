@@ -1,8 +1,11 @@
 import styles from '../styles/Home.module.css'
-import Layout from '../components/Layout'
-import { withApollo } from '../lib/apollo'; //importing in the higher-order component
 import { useQuery } from '@apollo/react-hooks'; //React hook for Apollo queries to import a REAL API query
 import gql from 'graphql-tag'; //in order to write graphql queries
+
+import { withApollo } from '../lib/apollo'; //importing in the higher-order component
+import Layout from '../components/Layout'
+import HabitList from '../components/HabitList'
+
 
 //Created a new GraphQL Query
 //used gql-tag "gql '' " to wrap the query
@@ -36,6 +39,7 @@ const HELLO_QUERY = gql `
             Level Up Your Life
             {/* {data.company.ceo} */}
           </h1>
+          <HabitList />
 
         </main>
 
