@@ -32,7 +32,6 @@ const HELLO_QUERY = gql `
       const { data, loading, error } = useQuery(HELLO_QUERY);
       const [habits, setHabits] = useState(['Do the dishes']);
       if (loading) return <main />; //<div /> or <main /> ???
-      console.log(data);
     
     return (
 
