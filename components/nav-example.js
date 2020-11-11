@@ -6,6 +6,14 @@ import Link from 'next/link';
 //DOWN BELOW, map the links array again to list the links in an unordered list.
 // key is a required key
 
+const links = [
+    {href: 'https://zeit.co/now', label: 'ZEIT'},
+    {href: 'https://github.com/zeit/next.js', label: 'GITHUB'}
+].map(link => {
+    link.key = `nav-link-${link.hef}-${link.label}`
+    return link
+})
+
 const Nav = () => (
     <nav>
         <ul>
@@ -17,6 +25,11 @@ const Nav = () => (
                     <a>About</a>
                 </Link>
             </li>
+            {links.map(({key, href, label}) => (
+                <li key={key}>
+                    <a href={href}>{label}</a>
+                </li>
+            ))}
         </ul>
     </nav>
 )
