@@ -1,6 +1,7 @@
 //creating a new route
 
 import { redirect } from "next/dist/next-server/server/api-utils"
+import '../../lib/mongoose';
 
 //req/res using ApolloServer
 import { ApolloServer, gql } from 'apollo-server-micro'
