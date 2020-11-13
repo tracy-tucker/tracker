@@ -1,7 +1,7 @@
 //creating a new route
 
 import { redirect } from "next/dist/next-server/server/api-utils"
-import '../../lib/mongoose';
+import connectDb from '../../lib/mongoose';
 
 //req/res using ApolloServer
 import { ApolloServer, gql } from 'apollo-server-micro'
@@ -35,7 +35,8 @@ export const config = {
     }
 }
 
-export default apolloServer.createHandler({ path: '/api/graphql' }); //The path where to send the response
+const server = apolloServer.createHandler({ path: '/api/graphql' }); //The path where to send the response
+export default connectDb(server);
 
 //NEXTJS EASY WAY OF CODING REQ/RES FUNCTION
 //request comes in and returns a response
