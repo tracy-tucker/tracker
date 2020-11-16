@@ -1,0 +1,25 @@
+# This is where you define your types of data.
+#Enter in all the types of date you want available to your API
+#! means we always want to have it if we are asking for it.
+
+#Data that comes from the API
+type Habit {
+    _id: ID!
+    name: String!
+}
+
+#Data that comes into the API
+input HabitInput {
+    _id: ID
+    name: String!
+}
+
+#This defines what kind of mutations we will allow (add, remove, etc)
+type Mutation {
+    addHabit(habit: HabitInput): Habit
+}
+
+#Returns an array of individual objects (Habit)
+type Query {
+    habits: [Habit]
+}
