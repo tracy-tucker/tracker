@@ -5,9 +5,10 @@ import connectDb from '../../lib/mongoose';
 
 //req/res using ApolloServer
 import { ApolloServer, gql } from 'apollo-server-micro';
+import { mergeResolvers, mergeTypeDefs } from 'graphql-tools';
 import { habitsResolvers } from '../../api/habits/resolvers';
 import { habitsMutations } from '../../api/habits/mutations';
-
+import Habits from '../../api/habits/Habits.graphql';
 //THIS IS THE THING YOU WANT TO HIT
 //This is defining the query APIs that we have available
 //Query = resolver function
@@ -20,13 +21,19 @@ const typeDefs = gql`
 //THIS IS WHAT HAPPENS WHEN YOU HIT IT
 //Define the resolvers
 //Resolvers are what runs when we query the API
-const resolvers = {
+const fakeResolvers = {
     Query: {
         sayHello: () => { //a normal resolver would return parent args
             return "Hello Level Up!";
         }
     }
 }
+
+const resolvers = mergeResolvers([
+    fakeResolvers,
+    habitsResolves,
+    habitsMutations
+]);
 
 //Create the Apollo Server
 const apolloServer = new ApolloServer({ typeDefs, resolvers }); //passing in the above created functions
