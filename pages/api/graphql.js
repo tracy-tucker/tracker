@@ -1,10 +1,12 @@
 //creating a new route
 
-import { redirect } from "next/dist/next-server/server/api-utils"
+//import { redirect } from "next/dist/next-server/server/api-utils"
 import connectDb from '../../lib/mongoose';
 
 //req/res using ApolloServer
-import { ApolloServer, gql } from 'apollo-server-micro'
+import { ApolloServer, gql } from 'apollo-server-micro';
+import { habitsResolvers } from '../../api/habits/resolvers';
+import { habitsMutations } from '../../api/habits/mutations';
 
 //THIS IS THE THING YOU WANT TO HIT
 //This is defining the query APIs that we have available
