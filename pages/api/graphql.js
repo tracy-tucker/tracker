@@ -1,11 +1,9 @@
 //creating a new route
 
-//import { redirect } from "next/dist/next-server/server/api-utils"
-import connectDb from '../../lib/mongoose';
-
 //req/res using ApolloServer
 import { ApolloServer, gql } from 'apollo-server-micro';
 import { mergeResolvers, mergeTypeDefs } from 'graphql-tools';
+import connectDb from '../../lib/mongoose';
 import { habitsResolvers } from '../../api/habits/resolvers';
 import { habitsMutations } from '../../api/habits/mutations';
 import Habits from '../../api/habits/Habits.graphql';
@@ -13,7 +11,7 @@ import Habits from '../../api/habits/Habits.graphql';
 //This is defining the query APIs that we have available
 //Query = resolver function
 //sayHello = resolver name, String = type of data it returns
-const typeDefs = gql`
+const fakeTypeDefs = gql`
     type Query {
         sayHello: String
     }
@@ -31,9 +29,11 @@ const fakeResolvers = {
 
 const resolvers = mergeResolvers([
     fakeResolvers,
-    habitsResolves,
+    habitsResolvers,
     habitsMutations
 ]);
+
+const typeDefs = mergeTypeDefs([fakeTypeDefs, Habits]);
 
 //Create the Apollo Server
 const apolloServer = new ApolloServer({ typeDefs, resolvers }); //passing in the above created functions
