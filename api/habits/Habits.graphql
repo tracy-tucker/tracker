@@ -2,10 +2,19 @@
 #Enter in all the types of date you want available to your API
 #! means we always want to have it if we are asking for it.
 
+#Graphql doesn't have a type of Date, so you have to create one!
+scaler Date
+
 #Data that comes from the API
 type Habit {
     _id: ID!
     name: String!
+    events: [Event]
+}
+
+type Event {
+    _id: ID!
+    date: Date
 }
 
 #Data that comes into the API
@@ -17,6 +26,8 @@ input HabitInput {
 #This defines what kind of mutations we will allow (add, remove, etc)
 type Mutation {
     addHabit(habit: HabitInput): Habit
+    addEvent(habitId: ID, date: Date): Habit
+    removeEvent(habitId: ID, eventId: ID): Habit
 }
 
 #Returns an array of individual objects (Habit)
