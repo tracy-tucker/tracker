@@ -1,5 +1,4 @@
-import styles from '../styles/Home.module.css'
-import { useState } from 'react'
+import styles from '../styles/Home.module.css';
 import { useQuery } from '@apollo/react-hooks'; //React hook for Apollo queries to import a REAL API query
 import gql from 'graphql-tag'; //in order to write graphql queries
 
@@ -30,7 +29,6 @@ const HELLO_QUERY = gql `
   const Home = () => {
     // create the function to pass in API queries
       const { data, loading, error } = useQuery(HELLO_QUERY);
-      const [habits, setHabits] = useState(['Do the dishes']);
       if (loading) return <main />; //<div /> or <main /> ???
     
     return (
@@ -43,8 +41,8 @@ const HELLO_QUERY = gql `
             {/* {data.company.ceo} */}
           </h1>
           <div className={styles.list}>
-            <HabitForm setHabits={setHabits} />
-            <HabitList habits={habits} />
+            <HabitForm />
+            <HabitList />
           </div>
 
         </main>
