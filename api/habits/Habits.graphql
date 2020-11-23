@@ -3,7 +3,7 @@
 #! means we always want to have it if we are asking for it.
 
 #Graphql doesn't have a type of Date, so you have to create one!
-scaler Date
+scalar Date
 
 #Data that comes from the API
 type Habit {
