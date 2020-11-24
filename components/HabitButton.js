@@ -27,7 +27,7 @@ const REMOVE_EVENT = gql `
     }
 `
 
-const HabitButton = ({date, habitId}) => {
+const HabitButton = ({date, habitId, events}) => {
 
     const [addEvent] = useMutation(ADD_EVENT, {
         refetchQueries: ['getHabits']
@@ -35,19 +35,26 @@ const HabitButton = ({date, habitId}) => {
 
     const [removeEvent] = useMutation(REMOVE_EVENT, {
         refetchQueries: ['getHabits']
-    })
+    });
 
-    const found = false;
+    const foundDate = events.find(event => {
+        const eventDate = new Date(event.date)
+        return eventDate.getDate() === date.getDate();
+    });
     
     return (
         <span>
             {date.getMonth() + 1}/{date.getDate()}
-            {found ? (
-                <button onClick={() => removeEvent({
+            {foundDate ? (
+                <button
+                    onClick={() => removeEvent({
                     variables: {
                     habitId,
-                    eventId: "asdfasdf"
-                } })}>
+                    eventId: foundDate._id
+                    }
+                })
+            }
+        >
                     X
                 </button>
             ) : (<button onClick={() => addEvent({
