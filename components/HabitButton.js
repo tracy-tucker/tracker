@@ -45,7 +45,8 @@ const HabitButton = ({date, habitId}) => {
             {found ? (
                 <button onClick={() => removeEvent({
                     variables: {
-                    habitId, eventId: "asdfasdf"
+                    habitId,
+                    eventId: "asdfasdf"
                 } })}>
                     X
                 </button>
