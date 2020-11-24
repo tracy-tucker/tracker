@@ -20,7 +20,7 @@ const HabitList = () => {
     if (loading) return <section />;
     if (error) {
         console.log(error);
-        return <seciton />
+        return <section />
     }
     const { habits } = data;
 
