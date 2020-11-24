@@ -8,7 +8,14 @@ const Habit = ({ habit, index }) => {
         <article>
             <h3 style={{ borderColor: colors[index] }}>{habit.name}</h3>
             <div className="buttons">
-            {dates.map(date => <HabitButton key={date.getTime()} date={date} /> )}
+            {dates.map(date => (
+            <HabitButton
+                key={date.getTime()}
+                date={date}
+                habitId={habit._id}
+                events={habit.events}
+            />
+            ))}
                 
             </div>
             <style jsx>{`
